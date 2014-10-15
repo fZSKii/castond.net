@@ -252,15 +252,8 @@ global $thinkup_homepage_section3_link;
 	if ( !empty( $thinkup_homepage_section3_link ) ) $thinkup_homepage_section3_link = get_permalink( $thinkup_homepage_section3_link );
 
     $section = get_posts('cat=1');
-    //print_r($section[0]);
-    $thinkup_homepage_section1_title = $section[0]->post_title;
-    $thinkup_homepage_section1_desc = $section[0]->post_excerpt != '' ? $section[0]->post_excerpt : $section[0]->post_content;
-    $thinkup_homepage_section1_link = $section[0]->guid;
+    $section2 = get_posts('cat=12');
 
-    $section = get_posts('cat=12');
-    $thinkup_homepage_section2_title = $section[0]->post_title;
-    $thinkup_homepage_section2_desc = $section[0]->post_excerpt != '' ? $section[0]->post_excerpt : $section[0]->post_content;
-    $thinkup_homepage_section2_link = $section[0]->guid;
 
 	if ( is_front_page() or is_thinkuphome() ) {
 		if ( empty( $thinkup_homepage_sectionswitch ) or $thinkup_homepage_sectionswitch == '1' ) {
@@ -277,8 +270,11 @@ global $thinkup_homepage_section3_link;
 					}
 			echo	'</div>',
 					'<div class="entry-content">',
-					'<h3><a href="' . $thinkup_homepage_section1_link . '" class="more-link">' . $thinkup_homepage_section1_title . '</a></h3>' . wpautop( do_shortcode ( $thinkup_homepage_section1_desc ) ),
-					'<p><a href="' . $thinkup_homepage_section1_link . '" class="more-link themebutton">' . __( 'Read More', 'lan-thinkupthemes' ) . '</a></p>',
+					//'<h3><a href="' . $thinkup_homepage_section1_link . '" class="more-link">' . $thinkup_homepage_section1_title . '</a></h3>' . wpautop( do_shortcode ( $thinkup_homepage_section1_desc ) ),
+					'<h3><a href="' . $section[0]->guid . '" class="more-link">' . $section[0]->post_title . '</a></h3>',
+					'<h3><a href="' . $section[1]->guid . '" class="more-link">' . $section[1]->post_title . '</a></h3>',
+					'<h3><a href="' . $section[2]->guid . '" class="more-link">' . $section[2]->post_title . '</a></h3>',
+					'<p><a href="/?cat=1" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
 					'</div>',
 					'</div>',
 				'</article>';
@@ -293,8 +289,10 @@ global $thinkup_homepage_section3_link;
 					}
 			echo	'</div>',
 					'<div class="entry-content">',
-					'<h3><a href="' . $thinkup_homepage_section2_link . '" class="more-link">' . $thinkup_homepage_section2_title . '</a></h3>' . wpautop( do_shortcode ( $thinkup_homepage_section2_desc ) ),
-					'<p><a href="' . $thinkup_homepage_section2_link . '" class="more-link themebutton">' . __( 'Read More', 'lan-thinkupthemes' ) . '</a></p>',
+                    '<h3><a href="' . $section2[0]->guid . '" class="more-link">' . $section2[0]->post_title . '</a></h3>',
+                    '<h3><a href="' . $section2[1]->guid . '" class="more-link">' . $section2[1]->post_title . '</a></h3>',
+                    '<h3><a href="' . $section2[2]->guid . '" class="more-link">' . $section2[2]->post_title . '</a></h3>',
+					'<p><a href="/?cat=2" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
 					'</div>',
 					'</div>',
 				'</article>';
@@ -310,7 +308,7 @@ global $thinkup_homepage_section3_link;
 			echo	'</div>',
 					'<div class="entry-content">',
 					'<h3><a href="' . $thinkup_homepage_section3_link . '" class="more-link">' . $thinkup_homepage_section3_title . '</a></h3>' . wpautop( do_shortcode ( $thinkup_homepage_section3_desc ) ),
-					'<p><a href="' . $thinkup_homepage_section3_link . '" class="more-link themebutton">' . __( 'Read More', 'lan-thinkupthemes' ) . '</a></p>',
+					'<p><a href="/bbs" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
 					'</div>',
 					'</div>',
 				'</article>';

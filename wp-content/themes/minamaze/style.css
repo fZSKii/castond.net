@@ -509,7 +509,7 @@ iframe.twitter-tweet {
 	list-style: none;
 }
 .pag li {
-	font-size: smaller;
+	font-size: 18px;
 	display: inline-block;
 	margin-right: 2px;
 }
@@ -1311,6 +1311,7 @@ input[type="submit"]:hover {
 	-ms-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+    height: 330px;
 }
 #section-home .entry-header {
 	position: relative;
@@ -2261,7 +2262,9 @@ padding: 0;
 	display: block; 
 }
 .blog-title a {
-	color: inherit;
+	color: #F33F3F;
+    font-size: 20px;
+    font-weight:bold;
 }
 .blog-style1 .more-link {
 	padding: 5px 10px;
@@ -2825,4 +2828,9 @@ h4.project-title {
 /* todo sky edit 2014-10-12 */
 #content .entry-content{
     font-size: 18px;
+}
+
+#section-home a.themebutton{
+    font-size: 10px;
+    float: right;
 }

@@ -31,7 +31,7 @@ get_header(); ?>
 							<?php thinkup_input_blogmeta(); ?>
 
 							<?php thinkup_input_blogtext(); ?>
-							<?php thinkup_input_readmore(); ?>
+							<?php //thinkup_input_readmore(); ?>
 						</div>
 
 					<div class="clearboth"></div>

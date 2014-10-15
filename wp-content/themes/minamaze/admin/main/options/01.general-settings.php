@@ -302,7 +302,8 @@ function thinkup_title_select() {
 	} else if ( is_404() ) {
 		printf( __( 'Page Not Found', 'lan-thinkupthemes' ) );
 	} else if ( is_category() ) {
-		printf( __( 'Category Archives: %s', 'lan-thinkupthemes' ), single_cat_title( '', false ) );
+		//printf( __( 'Category Archives: %s', 'lan-thinkupthemes' ), single_cat_title( '', false ) );
+		printf( __( '%s', 'lan-thinkupthemes' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
 		printf( __( 'Tag Archives: %s', 'lan-thinkupthemes' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {

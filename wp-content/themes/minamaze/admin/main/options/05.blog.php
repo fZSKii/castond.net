@@ -125,7 +125,7 @@ function thinkup_input_blogauthor() {
 function thinkup_input_readmore() {
 global $post;
 
-	echo '<p><a href="'. get_permalink($post->ID) . '" class="more-link themebutton">' . __( 'Read More', 'lan-thinkupthemes') . '</a></p>';
+	echo '<p><a href="'. get_permalink($post->ID) . '" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes') . '</a></p>';
 }
 
 
