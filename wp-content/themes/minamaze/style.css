@@ -1311,7 +1311,7 @@ input[type="submit"]:hover {
 	-ms-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-    height: 330px;
+    height: 350px;
 }
 #section-home .entry-header {
 	position: relative;
@@ -2841,4 +2841,5 @@ h4.project-title {
     overflow:hidden; /* 隐藏溢出的内容 */
     text-overflow:ellipsis; /* 溢出文本使用...代替 */
     text-decoration:underline;
+    text-align:left;
 }

@@ -285,7 +285,7 @@ global $thinkup_homepage_section3_link;
 						echo '<img src="' . $thinkup_homepage_section1_image[0] . '"  alt="" />';
 					}
 			echo	'</div>',
-					'<div class="entry-content">';
+					'<div class="entry-content"><h3>最新资讯</h3>';
 					//'<h3><a href="' . $thinkup_homepage_section1_link . '" class="more-link">' . $thinkup_homepage_section1_title . '</a></h3>' . wpautop( do_shortcode ( $thinkup_homepage_section1_desc ) ),
 					for($i=0;$i<5;$i++){
 						echo '<h5><a href="' . $section[$i]->guid . '" class="more-link">' . $section[$i]->post_title . '</a></h5>';
@@ -304,7 +304,7 @@ global $thinkup_homepage_section3_link;
 						echo '<img src="' . $thinkup_homepage_section2_image[0] . '"  alt="" />';
 					}
 			echo	'</div>',
-					'<div class="entry-content">';
+					'<div class="entry-content"><h3>最新活动</h3>';
                     for($i=0;$i<5;$i++){
 	                    echo '<h5><a href="' . $section2[$i]->guid . '" class="more-link">' . $section2[$i]->post_title . '</a></h5>';
                     }
@@ -322,7 +322,7 @@ global $thinkup_homepage_section3_link;
 						echo '<img src="' . $thinkup_homepage_section3_image[0] . '"  alt="" />';
 					}
 			echo	'</div>',
-					'<div class="entry-content">';
+					'<div class="entry-content"><h3>论坛资讯</h3>';
 					for($i=0;$i<5;$i++){
 						echo '<h5><a href="/bbs/read.php?tid=' . $section3[$i]['tid'] . '" class="more-link">' . $section3[$i]['subject'] . '</a></h5>';
 					}

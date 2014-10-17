@@ -19,15 +19,18 @@
 		echo	'<!-- #footer -->';  ?>
 		
 		<div id="sub-footer">
-		<div id="sub-footer-core">	
+		<div id="sub-footer-core">
+
 
 			<?php if ( has_nav_menu( 'sub_footer_menu' ) ) : ?>
 			<?php wp_nav_menu( array( 'depth' => 1, 'container_class' => 'sub-footer-links', 'container_id' => 'footer-menu', 'theme_location' => 'sub_footer_menu' ) ); ?>
 			<?php endif; ?>
+
+			<!--ul class="menu"><li><a href="/">首页</a></li><li><a href="/?p=53">关于我们</a></li><li><a href="/?p=40">联系我们</a></li></ul-->
 			<!-- #footer-menu -->
 
 			<div class="copyright">
-			<?php /* === Add custom footer === */ thinkup_input_copyright(); ?>
+				粤ICP备14073623号&nbsp;&nbsp;<?php /* === Add custom footer === */ thinkup_input_copyright(); ?>
 			</div>
 			<!-- .copyright -->
 

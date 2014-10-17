@@ -12,4 +12,4 @@
 			<?php the_content(); ?>
 		</div><!-- .entry-content -->
 
-		<?php //edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>
+		<?php //sky//edit_post_link( 'Edit', '<span class="edit-link">', '</span>' ); ?>
