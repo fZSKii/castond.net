@@ -114,11 +114,14 @@ $tags_list = get_the_tag_list( '', __( ', ', 'lan-thinkupthemes' ) );
 
 /* Input blog author */
 function thinkup_input_blogauthor() {
+	/*
+	 * 屏蔽作者
 	printf( __( '<span class="author"><i class="icon-pencil"></i>By <a href="%1$s" title="%2$s" rel="author">%3$s</a></span>', 'lan-thinkupthemes' ),
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		esc_attr( sprintf( __( 'View all posts by %s', 'lan-thinkupthemes' ), get_the_author() ) ),
 		get_the_author()
 	);
+	*/
 }
 
 /* Input 'Read more' link */

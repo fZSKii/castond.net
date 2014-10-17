@@ -2834,3 +2834,11 @@ h4.project-title {
     font-size: 10px;
     float: right;
 }
+
+#section-home .section .entry-content h5{
+    width:280px; /* 限制宽度（可选） */
+    white-space:nowrap; /* 禁止自动换行 */
+    overflow:hidden; /* 隐藏溢出的内容 */
+    text-overflow:ellipsis; /* 溢出文本使用...代替 */
+    text-decoration:underline;
+}

@@ -9,6 +9,22 @@
 	ENABLE HOMEPAGE SLIDER
 ---------------------------------------------------------------------------------- */
 
+// 读取论坛最新文章
+function bbs_list($limit)
+{
+	$out = array();
+	$connbbs = mysql_connect("localhost", "root", "root") or die("数据库链接错误");
+	mysql_select_db("phpwind", $connbbs);
+	mysql_query("set names 'UTF8'");
+	$sql = 'SELECT `tid`, `subject` FROM `pw_bbs_threads` ORDER BY digest desc,created_time desc,tid DESC LIMIT '.$limit;
+	$result = mysql_query($sql);
+	while($row = mysql_fetch_array($result)){
+		$out[] = $row;
+	}
+	mysql_close($connbbs);
+	return $out;
+}
+
 // Add Slider - Homepage
 function thinkup_input_sliderhome() {
 global $thinkup_homepage_sliderswitch;
@@ -253,7 +269,7 @@ global $thinkup_homepage_section3_link;
 
     $section = get_posts('cat=1');
     $section2 = get_posts('cat=12');
-
+	$section3 = bbs_list(5);
 
 	if ( is_front_page() or is_thinkuphome() ) {
 		if ( empty( $thinkup_homepage_sectionswitch ) or $thinkup_homepage_sectionswitch == '1' ) {
@@ -269,12 +285,12 @@ global $thinkup_homepage_section3_link;
 						echo '<img src="' . $thinkup_homepage_section1_image[0] . '"  alt="" />';
 					}
 			echo	'</div>',
-					'<div class="entry-content">',
+					'<div class="entry-content">';
 					//'<h3><a href="' . $thinkup_homepage_section1_link . '" class="more-link">' . $thinkup_homepage_section1_title . '</a></h3>' . wpautop( do_shortcode ( $thinkup_homepage_section1_desc ) ),
-					'<h3><a href="' . $section[0]->guid . '" class="more-link">' . $section[0]->post_title . '</a></h3>',
-					'<h3><a href="' . $section[1]->guid . '" class="more-link">' . $section[1]->post_title . '</a></h3>',
-					'<h3><a href="' . $section[2]->guid . '" class="more-link">' . $section[2]->post_title . '</a></h3>',
-					'<p><a href="/?cat=1" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
+					for($i=0;$i<5;$i++){
+						echo '<h5><a href="' . $section[$i]->guid . '" class="more-link">' . $section[$i]->post_title . '</a></h5>';
+					}
+			echo	'<p><a href="/?cat=1" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
 					'</div>',
 					'</div>',
 				'</article>';
@@ -288,11 +304,11 @@ global $thinkup_homepage_section3_link;
 						echo '<img src="' . $thinkup_homepage_section2_image[0] . '"  alt="" />';
 					}
 			echo	'</div>',
-					'<div class="entry-content">',
-                    '<h3><a href="' . $section2[0]->guid . '" class="more-link">' . $section2[0]->post_title . '</a></h3>',
-                    '<h3><a href="' . $section2[1]->guid . '" class="more-link">' . $section2[1]->post_title . '</a></h3>',
-                    '<h3><a href="' . $section2[2]->guid . '" class="more-link">' . $section2[2]->post_title . '</a></h3>',
-					'<p><a href="/?cat=2" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
+					'<div class="entry-content">';
+                    for($i=0;$i<5;$i++){
+	                    echo '<h5><a href="' . $section2[$i]->guid . '" class="more-link">' . $section2[$i]->post_title . '</a></h5>';
+                    }
+			echo	'<p><a href="/?cat=2" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
 					'</div>',
 					'</div>',
 				'</article>';
@@ -306,9 +322,11 @@ global $thinkup_homepage_section3_link;
 						echo '<img src="' . $thinkup_homepage_section3_image[0] . '"  alt="" />';
 					}
 			echo	'</div>',
-					'<div class="entry-content">',
-					'<h3><a href="' . $thinkup_homepage_section3_link . '" class="more-link">' . $thinkup_homepage_section3_title . '</a></h3>' . wpautop( do_shortcode ( $thinkup_homepage_section3_desc ) ),
-					'<p><a href="/bbs" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
+					'<div class="entry-content">';
+					for($i=0;$i<5;$i++){
+						echo '<h5><a href="/bbs/read.php?tid=' . $section3[$i]['tid'] . '" class="more-link">' . $section3[$i]['subject'] . '</a></h5>';
+					}
+			echo	'<p><a href="/bbs" class="more-link themebutton">' . __( '更多...', 'lan-thinkupthemes' ) . '</a></p>',
 					'</div>',
 					'</div>',
 				'</article>';
